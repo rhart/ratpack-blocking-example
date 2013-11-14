@@ -1,5 +1,4 @@
-import static org.ratpackframework.groovy.RatpackScript.ratpack
-import static org.ratpackframework.groovy.Util.exec
+import static ratpack.groovy.Groovy.ratpack
 
 ratpack {
     handlers {
@@ -12,12 +11,12 @@ ratpack {
         }
 
         get("non-blocking") {
-          println "${new Date()} - received non-blocking request"
-          exec getBlocking(),
-            { Thread.sleep(10000) },
-            {
-              println "${new Date()} - replying non-blocking request"
-              response.send()
+            println "${new Date()} - received non-blocking request"
+            blocking {
+                Thread.sleep(10000)
+            }.then{
+                println "${new Date()} - replying non-blocking request"
+                response.send()
             }
         }
 
