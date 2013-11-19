@@ -12,7 +12,7 @@ ratpack {
 
         get("non-blocking") {
             println "${new Date()} - received non-blocking request"
-            blocking {
+            background {
                 Thread.sleep(10000)
             }.then{
                 println "${new Date()} - replying non-blocking request"
