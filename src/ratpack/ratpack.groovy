@@ -14,7 +14,7 @@ ratpack {
             println "${new Date()} - received non-blocking request"
             background {
                 Thread.sleep(10000)
-            }.then{
+            } then{
                 println "${new Date()} - replying non-blocking request"
                 response.send()
             }
