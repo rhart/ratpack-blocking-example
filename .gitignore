@@ -1,4 +1,10 @@
-*.impl
+build
+.gradle
+.idea
+*.iml
 *.ipr
 *.iws
-.VERSION.swp
+*.ids
+out
+.project
+.classpath
